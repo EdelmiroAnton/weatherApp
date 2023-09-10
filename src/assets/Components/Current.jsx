@@ -27,6 +27,11 @@ const Current = () => {
     setCity(inputValue);
   };
 
+  const resetSearch = () => {
+    const inputValue = document.getElementById("input_currentCity");
+    inputValue.value = "";
+  };
+
   const disableSearchBtn = () => {
     const inputValue = document.getElementById("input_currentCity").value;
     if (inputValue.length >= 3) {
@@ -44,6 +49,7 @@ const Current = () => {
       <button onClick={searchCurrentCity} disabled={disable}>
         Search
       </button>
+      <button onClick={resetSearch}>Reset</button>
 
       {currentCity ? (
         <h3>
