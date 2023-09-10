@@ -1,12 +1,12 @@
-// import { useState } from "react";
-import "./App.css";
+//Components
+import Current from "./assets/Components/Current";
 
-function App() {
+const App = () => {
   return (
     <>
-    <div>Testing app</div>
+      <Current />
     </>
   );
-}
+};
 
 export default App;
