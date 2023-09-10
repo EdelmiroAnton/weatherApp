@@ -15,26 +15,24 @@ const Current = () => {
         `${BASE_URL}/current.json?key=${API_KEY}&q=${city}`
       );
       const resp = await data.json();
-      //   console.log(resp);
-      setCurrentCity(resp);
+      setCurrentCity(resp.location);
     };
     fetchCurrentWeather();
   }, [city]);
+  console.log(currentCity);
 
   // Catch the value when the user write the city in the Input
-  const handleCurrentCity = () => {
+  const searchCurrentCity = () => {
     const inputValue = document.getElementById("input_currentCity").value;
     setCity(inputValue);
   };
 
   const disableSearchBtn = () => {
     const inputValue = document.getElementById("input_currentCity").value;
-    console.log(inputValue.length);
-
     if (inputValue.length >= 3) {
       setDisable(false);
     }
-    
+
     if (inputValue.length < 3) {
       setDisable(true);
     }
@@ -43,17 +41,17 @@ const Current = () => {
   return (
     <>
       <input type="text" id="input_currentCity" onChange={disableSearchBtn} />
-      <button onClick={handleCurrentCity} disabled={disable}>
+      <button onClick={searchCurrentCity} disabled={disable}>
         Search
       </button>
 
-      {currentCity && (
+      {currentCity ? (
         <h3>
-          {currentCity.location.name}, {currentCity.location.region},{" "}
-          {currentCity.location.country}
+          {currentCity.name}, {currentCity.region}, {currentCity.country}
         </h3>
+      ) : (
+        <h2>error</h2>
       )}
-      {/* {!city.includes(currentCity.location.name) && <h2>incorrect</h2>} */}
     </>
   );
 };
