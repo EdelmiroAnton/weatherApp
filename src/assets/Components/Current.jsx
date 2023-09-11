@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const Current = () => {
   //WEATHER API
-  const BASE_URL = "http://api.weatherapi.com/v1";
+  const BASE_URL = "https://api.weatherapi.com/v1";
   const API_KEY = "db02fd76b8c04ca89a4231036231108";
 
   const [currentCity, setCurrentCity] = useState(); //To handle the API data
