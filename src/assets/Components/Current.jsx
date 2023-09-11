@@ -9,6 +9,10 @@ const Current = () => {
   const [city, setCity] = useState("Mercedes"); // Initial city to start de API
   const [disable, setDisable] = useState(true); //Disable search btn
 
+  //Get coordinates from the current location
+  const [lat, setLat] = useState(); //latitude
+  const [lon, setLon] = useState(); //longitude
+
   useEffect(() => {
     const fetchCurrentWeather = async () => {
       const data = await fetch(
@@ -19,7 +23,27 @@ const Current = () => {
     };
     fetchCurrentWeather();
   }, [city]);
-  console.log(currentCity);
+
+  //Get latitude and longitude for geolocation. Then try to get the city with reverse geolocation
+  function success(pos) {
+    const crd = pos.coords;
+    const lat = crd.latitude;
+    const lon = crd.longitude;
+    setLat(lat);
+    setLon(lon);
+  }
+
+  const error = (err) => {
+    console.log(err);
+  };
+
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
 
   // Catch the value when the user write the city in the Input
   const searchCurrentCity = () => {
@@ -58,6 +82,9 @@ const Current = () => {
       ) : (
         <h2>error</h2>
       )}
+      <div>
+        {lat} / {lon}
+      </div>
     </>
   );
 };
