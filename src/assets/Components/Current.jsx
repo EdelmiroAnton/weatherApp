@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
+import { Puff } from "react-loader-spinner";
+import humedad from "../humedad.png";
+import "./current.css";
 
 const Current = () => {
   //WEATHER API
   const BASE_URL = "https://api.weatherapi.com/v1";
   const API_KEY = "db02fd76b8c04ca89a4231036231108";
 
-  const [currentCity, setCurrentCity] = useState(); //To handle the API data
+  const [currentLocation, setCurrentLocation] = useState(); //To store the city, region and country
+  const [currentWeather, setCurrentWeather] = useState();
   const [city, setCity] = useState(""); // city variable to use in the fetch URL Weather API
   const [disable, setDisable] = useState(true); //Disable search btn
 
@@ -20,10 +24,13 @@ const Current = () => {
         `${BASE_URL}/current.json?key=${API_KEY}&q=${city}`
       );
       const resp = await data.json();
-      setCurrentCity(resp.location);
+      setCurrentLocation(resp.location);
+      setCurrentWeather(resp.current);
     };
     fetchCurrentCity();
   }, [city]);
+  console.log(currentLocation);
+  console.log(currentWeather);
 
   //Get latitude and longitude for geolocation
   const success = (pos) => {
@@ -48,6 +55,7 @@ const Current = () => {
 
   //Reverse Geocoding. Get the city, state and country with the latitude and longitude.
   //Geoapify API
+
   const reverseGeocoding = async () => {
     const REVERSE_API_KEY = "4cc4b204bae24c2ba3ac8a5810b5eabd";
     const resp = await fetch(
@@ -92,16 +100,28 @@ const Current = () => {
       </button>
       <button onClick={resetSearch}>Reset</button>
 
-      {currentCity ? (
+      {currentLocation ? (
         <h3>
-          {currentCity.name}, {currentCity.region}, {currentCity.country}
+          {currentLocation.name}, {currentLocation.region},{" "}
+          {currentLocation.country}
         </h3>
       ) : (
-        <h2>Buscando tu ubicación...</h2>
+        <div>
+          <div>Buscando tu ubicación</div>
+          <Puff />
+        </div>
       )}
-      <div>
-        {lat} / {lon}
-      </div>
+      {currentWeather && (
+        <div>
+          <h3>{currentWeather.condition.text}</h3>
+          <img src={currentWeather.condition.icon} alt="" />
+          <h3>🌡️ {currentWeather.temp_c} °C</h3>
+          <h3>
+            <img src={humedad} alt="" className="iconHumidity" />
+            {currentWeather.humidity}%
+          </h3>
+        </div>
+      )}
     </>
   );
 };
