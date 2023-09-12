@@ -113,13 +113,18 @@ const Current = () => {
       )}
       {currentWeather && (
         <div>
-          <h3>{currentWeather.condition.text}</h3>
-          <img src={currentWeather.condition.icon} alt="" />
           <h3>🌡️ {currentWeather.temp_c} °C</h3>
+          <img
+            src={currentWeather.condition.icon}
+            alt="icon_weather_condition"
+            />
+            <h3>{currentWeather.condition.text}</h3>
           <h3>
-            <img src={humedad} alt="" className="iconHumidity" />
+            <img src={humedad} alt="icon_humidity" className="iconHumidity" />
             {currentWeather.humidity}%
           </h3>
+          <h3>🌧️ {currentWeather.precip_in} %</h3>
+          <h3>🌬️ {currentWeather.wind_kph} km/h</h3>
         </div>
       )}
     </>
