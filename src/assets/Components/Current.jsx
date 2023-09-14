@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import humedad from "../humedad.png";
 import "../Styles/current.css";
+// import Forecast from "./Forecast";
 
 const Current = () => {
   //WEATHER API
@@ -69,6 +70,18 @@ const Current = () => {
     fetchCurrentCity();
   }, [city]);
 
+  //Effect to get information about the forecast
+  useEffect(() => {
+    const fetchForecast = async () => {
+      const data = await fetch(
+        `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=3`
+      );
+      const resp = await data.json();
+      console.log(resp);
+    };
+    fetchForecast();
+  }, [city]);
+
   // Catch the value when the user write the city in the Input
   let inputValue = document.getElementById("input_currentCity");
   const searchCurrentCity = () => {
@@ -122,6 +135,7 @@ const Current = () => {
           <h3>🌬️ {currentWeather.wind_kph} km/h</h3>
         </div>
       )}
+      {/* <Forecast /> */}
     </>
   );
 };
