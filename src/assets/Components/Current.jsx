@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import humedad from "../humedad.png";
-import SearchCity from "./SearchCity";
 import "../Styles/current.css";
 
 const Current = () => {
@@ -12,6 +11,7 @@ const Current = () => {
   const [currentLocation, setCurrentLocation] = useState(); //To store the city, region and country
   const [currentWeather, setCurrentWeather] = useState(); //To render the current weather information
   const [city, setCity] = useState(""); // city variable to use in the fetch URL Weather API
+  const [disable, setDisable] = useState(true); //Disable search btn
 
   //Coordinates from the current location
   const [lat, setLat] = useState(); //latitude
@@ -69,10 +69,32 @@ const Current = () => {
     fetchCurrentCity();
   }, [city]);
 
+  // Catch the value when the user write the city in the Input
+  let inputValue = document.getElementById("input_currentCity");
+  const searchCurrentCity = () => {
+    setCity(inputValue.value);
+  };
+
+  const resetSearch = () => {
+    inputValue.value = "";
+  };
+
+  const disableSearchBtn = () => {
+    if (inputValue.value.length >= 3) {
+      setDisable(false);
+    }
+
+    if (inputValue.value.length < 3) {
+      setDisable(true);
+    }
+  };
   return (
     <>
-      <SearchCity setCity={setCity} />
-
+      <input type="text" id="input_currentCity" onChange={disableSearchBtn} />
+      <button onClick={searchCurrentCity} disabled={disable}>
+        Search
+      </button>
+      <button onClick={resetSearch}>Reset</button>
       {currentLocation ? (
         <h3>
           {currentLocation.name}, {currentLocation.region},{" "}
