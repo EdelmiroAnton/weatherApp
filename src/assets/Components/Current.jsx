@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
-import humedad from "../humedad.png";
+import humedad from "../img/humedad.png";
 import "../Styles/current.css";
+import { getForecastDate } from "../../getForecastDate";
 // import Forecast from "./Forecast";
 
 const Current = () => {
@@ -71,8 +72,8 @@ const Current = () => {
     };
     fetchCurrentCity();
   }, [city]);
-  console.log(forecast);
 
+  console.log(forecast);
   // Catch the value when the user write the city in the Input
   let inputValue = document.getElementById("input_currentCity");
   const searchCurrentCity = () => {
@@ -128,7 +129,7 @@ const Current = () => {
       )}
       {forecast.map((el) => (
         <>
-          <div>{el.date}</div>
+          <div>{getForecastDate(el.date)}</div>
           <img src={el.day.condition.icon} alt="" />
           <div>{el.day.mintemp_c} °C</div>
           <div>{el.day.maxtemp_c} °C</div>
