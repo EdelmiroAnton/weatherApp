@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import humedad from "../img/humedad.png";
 import "../Styles/current.css";
-import { getForecastDate } from "../../getForecastDate";
+import { getForecastDate } from "../../helpers/getForecastDate";
 
 const Current = () => {
   //WEATHER API
