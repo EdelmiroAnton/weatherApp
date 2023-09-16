@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import humedad from "../img/humedad.png";
-import "../Styles/current.css";
 import { getForecastDate } from "../../helpers/getForecastDate";
+
+import "../Styles/current.css";
+import Search from "./Search";
 
 const Current = () => {
   //WEATHER API
   const BASE_URL = "https://api.weatherapi.com/v1";
   const API_KEY = "db02fd76b8c04ca89a4231036231108";
 
+  //States
   const [currentLocation, setCurrentLocation] = useState(); //To store the city, region and country
   const [currentWeather, setCurrentWeather] = useState(); //To render the current weather information
   const [forecast, setForecast] = useState([]); //To store the forecast of the city
   const [city, setCity] = useState(""); // city variable to use in the fetch URL Weather API
-  const [disable, setDisable] = useState(true); //Disable search btn
 
   //Coordinates from the current location
   const [lat, setLat] = useState(); //latitude
@@ -72,33 +74,9 @@ const Current = () => {
     fetchCurrentCity();
   }, [city]);
 
-  console.log(forecast);
-  // Catch the value when the user write the city in the Input
-  let inputValue = document.getElementById("input_currentCity");
-  const searchCurrentCity = () => {
-    setCity(inputValue.value);
-  };
-
-  const resetSearch = () => {
-    inputValue.value = "";
-  };
-
-  const disableSearchBtn = () => {
-    if (inputValue.value.length >= 3) {
-      setDisable(false);
-    }
-
-    if (inputValue.value.length < 3) {
-      setDisable(true);
-    }
-  };
   return (
     <>
-      <input type="text" id="input_currentCity" onChange={disableSearchBtn} />
-      <button onClick={searchCurrentCity} disabled={disable}>
-        Search
-      </button>
-      <button onClick={resetSearch}>Reset</button>
+      <Search />
       {currentLocation ? (
         <h3>
           {currentLocation.name}, {currentLocation.region},{" "}
