@@ -3,7 +3,6 @@ import { Puff } from "react-loader-spinner";
 import humedad from "../img/humedad.png";
 import "../Styles/current.css";
 import { getForecastDate } from "../../getForecastDate";
-// import Forecast from "./Forecast";
 
 const Current = () => {
   //WEATHER API
