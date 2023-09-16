@@ -11,6 +11,7 @@ const Current = () => {
 
   const [currentLocation, setCurrentLocation] = useState(); //To store the city, region and country
   const [currentWeather, setCurrentWeather] = useState(); //To render the current weather information
+  const [forecast, setForecast] = useState([]); //To store the forecast of the city
   const [city, setCity] = useState(""); // city variable to use in the fetch URL Weather API
   const [disable, setDisable] = useState(true); //Disable search btn
 
@@ -61,26 +62,16 @@ const Current = () => {
   useEffect(() => {
     const fetchCurrentCity = async () => {
       const data = await fetch(
-        `${BASE_URL}/current.json?key=${API_KEY}&q=${city}`
+        `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=3`
       );
       const resp = await data.json();
       setCurrentLocation(resp.location);
       setCurrentWeather(resp.current);
+      setForecast(resp.forecast.forecastday);
     };
     fetchCurrentCity();
   }, [city]);
-
-  //Effect to get information about the forecast
-  useEffect(() => {
-    const fetchForecast = async () => {
-      const data = await fetch(
-        `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=3`
-      );
-      const resp = await data.json();
-      console.log(resp);
-    };
-    fetchForecast();
-  }, [city]);
+  console.log(forecast);
 
   // Catch the value when the user write the city in the Input
   let inputValue = document.getElementById("input_currentCity");
@@ -135,7 +126,14 @@ const Current = () => {
           <h3>🌬️ {currentWeather.wind_kph} km/h</h3>
         </div>
       )}
-      {/* <Forecast /> */}
+      {forecast.map((el) => (
+        <>
+          <div>{el.date}</div>
+          <img src={el.day.condition.icon} alt="" />
+          <div>{el.day.mintemp_c} °C</div>
+          <div>{el.day.maxtemp_c} °C</div>
+        </>
+      ))}
     </>
   );
 };
