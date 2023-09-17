@@ -9,6 +9,7 @@ const Search = () => {
 
   const resetSearch = () => {
     inputValue.value = "";
+    setDisable(true)
   };
 
   const disableSearchBtn = () => {
