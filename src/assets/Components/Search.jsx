@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 
-const Search = () => {
-  //WEATHER API
-  const BASE_URL = "https://api.weatherapi.com/v1";
-  const API_KEY = "db02fd76b8c04ca89a4231036231108";
+//Helpers
+import { apiUrl_info } from "../../helpers/weatherApi_info";
 
+const Search = () => {
   const inputValue = document.getElementById("input_currentCity");
 
   const [disable, setDisable] = useState(true); //Disable search btn
@@ -15,7 +14,7 @@ const Search = () => {
   useEffect(() => {
     const fetchSearchData = async () => {
       const data = await fetch(
-        `${BASE_URL}/search.json?key=${API_KEY}&q=${searchedCity}`
+        `${apiUrl_info.BASEURL}/search.json?key=${apiUrl_info.APIKEY}&q=${searchedCity}`
       );
       const resp = await data.json();
       setCityFromFetchData(resp);

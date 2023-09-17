@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import humedad from "../img/humedad.png";
-import { getForecastDate } from "../../helpers/getForecastDate";
 
-import "../Styles/current.css";
+//Helpers
+import { getForecastDate } from "../../helpers/getForecastDate";
+import { apiUrl_info } from "../../helpers/weatherApi_info";
+
+//Components
 import Search from "./Search";
 
-const Current = () => {
-  //WEATHER API
-  const BASE_URL = "https://api.weatherapi.com/v1";
-  const API_KEY = "db02fd76b8c04ca89a4231036231108";
+import "../Styles/current.css";
 
+const Current = () => {
   //States
   const [currentLocation, setCurrentLocation] = useState(); //To store the city, region and country
   const [currentWeather, setCurrentWeather] = useState(); //To render the current weather information
@@ -64,7 +65,7 @@ const Current = () => {
   useEffect(() => {
     const fetchCurrentCity = async () => {
       const data = await fetch(
-        `${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=3`
+        `${apiUrl_info.BASEURL}/forecast.json?key=${apiUrl_info.APIKEY}&q=${city}&days=3`
       );
       const resp = await data.json();
       setCurrentLocation(resp.location);
