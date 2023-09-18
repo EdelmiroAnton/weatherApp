@@ -1,4 +1,3 @@
-//Components
 import { Routes, Route } from "react-router-dom";
 
 //Components
@@ -10,7 +9,8 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Current />} />
-        <Route path="/searched-city" element={<SearchedCity />} />
+        {/* <Route path="/city" element={<Current />} /> */}
+        <Route path="/city/:city" element={<SearchedCity />} />
         <Route path="*" element={<Current />} />
       </Routes>
     </>
