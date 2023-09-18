@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import humedad from "../img/humedad.png";
 
@@ -11,54 +11,12 @@ import { useFetchData } from "../../helpers/useFetchData";
 import Search from "./Search";
 
 import "../Styles/current.css";
+import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
 
 const Current = () => {
-  //States
-  const [city, setCity] = useState(""); // city variable to use in the fetch URL Weather API
-  const [lat, setLat] = useState(); //latitude from the current location
-  const [lon, setLon] = useState(); //longitude from the current location
-
+  const { city } = useReverseGeocoding();
   const URL = `${api.BASEURL}/forecast.json?key=${api.APIKEY}&q=${city}&days=3`;
   const { currentLocation, currentWeather, forecast } = useFetchData(URL);
-
-  //Get latitude and longitude for geolocation
-  useEffect(() => {
-    const success = (pos) => {
-      const crd = pos.coords;
-      const lat = crd.latitude;
-      const lon = crd.longitude;
-      setLat(lat);
-      setLon(lon);
-    };
-
-    const error = (err) => {
-      alert(err.message);
-    };
-
-    const options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0,
-    };
-
-    navigator.geolocation.getCurrentPosition(success, error, options);
-
-    //Reverse Geocoding. Get the city, state and country with the latitude and longitude.
-    //Geoapify API
-    const reverseGeocoding = async () => {
-      const REVERSE_API_KEY = "4cc4b204bae24c2ba3ac8a5810b5eabd";
-      const resp = await fetch(
-        `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&apiKey=${REVERSE_API_KEY}`
-      );
-      const data = await resp.json();
-      setCity(
-        `${data.features[0].properties.city},
-        ${data.features[0].properties.state},
-        ${data.features[0].properties.country}`
-      );
-    };
-    reverseGeocoding();
-  }, [lat, lon]);
 
   return (
     <>
