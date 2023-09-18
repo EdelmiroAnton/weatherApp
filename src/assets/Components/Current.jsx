@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import humedad from "../img/humedad.png";
 
@@ -6,12 +5,13 @@ import humedad from "../img/humedad.png";
 import { getForecastDate } from "../../helpers//getForecastDate";
 import { api } from "../../helpers/weatherApi_info";
 import { useFetchData } from "../../helpers/useFetchData";
+import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
 
 //Components
 import Search from "./Search";
 
+//Styles
 import "../Styles/current.css";
-import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
 
 const Current = () => {
   const { city } = useReverseGeocoding();

@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { api } from "../../helpers/weatherApi_info";
 
 const Search = () => {
-  const inputValue = document.getElementById("input_currentCity");
-
   const [disable, setDisable] = useState(true); //Disable search btn
   const [searchedCity, setSearchedCity] = useState(); //Get the input value and use the variable to get the data from de API URL
   const [cityFromFetchData, setCityFromFetchData] = useState([]); // Store the response from the API Data
@@ -22,6 +20,8 @@ const Search = () => {
     };
     fetchSearchData();
   }, [searchedCity]);
+
+  const inputValue = document.getElementById("input_currentCity");
 
   //Function to reset the API Data to initial state
   const resetSearch = () => {
