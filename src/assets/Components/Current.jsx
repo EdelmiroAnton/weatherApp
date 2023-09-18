@@ -14,18 +14,14 @@ import "../Styles/current.css";
 
 const Current = () => {
   //States
-  // const [currentLocation, setCurrentLocation] = useState(); //To store the city, region and country
-  // const [currentWeather, setCurrentWeather] = useState(); //To render the current weather information
-  // const [forecast, setForecast] = useState([]); //To store the forecast of the city
   const [city, setCity] = useState(""); // city variable to use in the fetch URL Weather API
-  const url = `${api.BASEURL}/forecast.json?key=${api.APIKEY}&q=${city}&days=3`;
+  const [lat, setLat] = useState(); //latitude from the current location
+  const [lon, setLon] = useState(); //longitude from the current location
 
-  // //Coordinates from the current location
-  const [lat, setLat] = useState(); //latitude
-  const [lon, setLon] = useState(); //longitude
+  const URL = `${api.BASEURL}/forecast.json?key=${api.APIKEY}&q=${city}&days=3`;
+  const { currentLocation, currentWeather, forecast } = useFetchData(URL);
 
-  const { currentLocation, currentWeather, forecast } = useFetchData(url);
-  // //Get latitude and longitude for geolocation
+  //Get latitude and longitude for geolocation
   useEffect(() => {
     const success = (pos) => {
       const crd = pos.coords;
@@ -63,23 +59,6 @@ const Current = () => {
     };
     reverseGeocoding();
   }, [lat, lon]);
-
-  //Effect to get information about of the user's current location
-  // useEffect(() => {
-  //   // useFetchData(api.BASEURL, api.APIKEY, city);
-  //   const fetchCurrentCity = async () => {
-  //     const data = await fetch(
-  //       `${api.BASEURL}/forecast.json?key=${api.APIKEY}&q=${city}&days=3`
-  //     );
-  //     const resp = await data.json();
-  //   setCurrentLocation(resp.location);
-  //   setCurrentWeather(resp.current);
-  //   setForecast(resp.forecast.forecastday);
-  //   };
-  //   fetchCurrentCity();
-  // }, [city]);
-
-  console.log(forecast);
 
   return (
     <>

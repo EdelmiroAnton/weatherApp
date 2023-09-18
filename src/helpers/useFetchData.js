@@ -5,6 +5,7 @@ export const useFetchData = (url) => {
   const [currentWeather, setCurrentWeather] = useState(); //To render the current weather information
   const [forecast, setForecast] = useState([]); //To store the forecast of the city
 
+  //Effect to get weather information
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(url);
@@ -15,7 +16,7 @@ export const useFetchData = (url) => {
     };
     fetchData();
   }, [url]);
-  
+
   return {
     currentLocation,
     currentWeather,
