@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 //Helpers
 import { apiUrl_info } from "../../helpers/weatherApi_info";
@@ -58,7 +59,9 @@ const Search = () => {
       <ul>
         {cityFromFetchData.map((city) => (
           <li key={city.id}>
-            {city.name}, {city.region}, {city.country}
+            <Link to={`/city/${city.name}, ${city.region}, ${city.country}`}>
+              {city.name}, {city.region}, {city.country}
+            </Link>
           </li>
         ))}
       </ul>

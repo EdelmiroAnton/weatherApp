@@ -9,7 +9,6 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Current />} />
-        {/* <Route path="/city" element={<Current />} /> */}
         <Route path="/city/:city" element={<SearchedCity />} />
         <Route path="*" element={<Current />} />
       </Routes>
