@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 //Helpers
-import { apiUrl_info } from "../../helpers/weatherApi_info";
+import { api } from "../../helpers/weatherApi_info";
 
 const Search = () => {
   const inputValue = document.getElementById("input_currentCity");
@@ -15,7 +15,7 @@ const Search = () => {
   useEffect(() => {
     const fetchSearchData = async () => {
       const data = await fetch(
-        `${apiUrl_info.BASEURL}/search.json?key=${apiUrl_info.APIKEY}&q=${searchedCity}`
+        `${api.BASEURL}/search.json?key=${api.APIKEY}&q=${searchedCity}`
       );
       const resp = await data.json();
       setCityFromFetchData(resp);
