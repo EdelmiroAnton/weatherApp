@@ -1,0 +1,26 @@
+@media (min-width: 320px) and (max-width: 767px) {
+  .container_input {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .magnifiyngGlass {
+    width: 12px;
+    height: 12px;
+    position: relative;
+    left: 18px;
+    top: 5px;
+  }
+
+  .search_input {
+    width: 450px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(226, 222, 222);
+  }
+
+  .search_input::placeholder {
+    padding-left: 22px;
+  }
+}

@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 //Helpers
 import { api } from "../../helpers/weatherApi_info";
 
+import lupa from "../img/lupa.png";
+
+import "../Styles/search.css";
+
 const Search = () => {
   const [disable, setDisable] = useState(true); //Disable search btn
   const [searchedCity, setSearchedCity] = useState(); //Get the input value and use the variable to get the data from de API URL
@@ -47,15 +51,24 @@ const Search = () => {
 
   return (
     <>
-      <input type="text" id="input_currentCity" onChange={getUserSearch} />
-      <button
-        id="resetBtn"
-        onChange={getUserSearch}
-        onClick={resetSearch}
-        disabled={disable}
-      >
-        Reset
-      </button>
+      <div className="container_input">
+        <img src={lupa} alt="search_magnifyingGlass" className="magnifiyngGlass"/>
+        <input
+          type="text"
+          id="input_currentCity"
+          className="search_input"
+          onChange={getUserSearch}
+          placeholder="Busque una ciudad"
+        />
+        <button
+          id="resetBtn"
+          onChange={getUserSearch}
+          onClick={resetSearch}
+          disabled={disable}
+        >
+          Reset
+        </button>
+      </div>
       <ul>
         {cityFromFetchData.map((city) => (
           <li key={city.id}>
