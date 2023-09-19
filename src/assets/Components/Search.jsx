@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 //Helpers
 import { api } from "../../helpers/weatherApi_info";
 
-import lupa from "../img/lupa.png";
+//Images
+import magnifying_glass from "../img/magnifying_glass.png";
+import cancel_icon from "../img/cancel_Icon.png";
 
 import "../Styles/search.css";
 
@@ -52,22 +54,26 @@ const Search = () => {
   return (
     <>
       <div className="container_input">
-        <img src={lupa} alt="search_magnifyingGlass" className="magnifiyngGlass"/>
+        <img
+          src={magnifying_glass}
+          alt="search_magnifyingGlass"
+          className="magnifiyngGlass"
+        />
         <input
           type="text"
           id="input_currentCity"
           className="search_input"
           onChange={getUserSearch}
-          placeholder="Busque una ciudad"
+          placeholder="Search for a city, state or county"
         />
-        <button
-          id="resetBtn"
-          onChange={getUserSearch}
+        <img
+          src={cancel_icon}
+          alt="icon_cancel"
+          className="icon_cancel"
           onClick={resetSearch}
           disabled={disable}
-        >
-          Reset
-        </button>
+        />
+        {/* </button> */}
       </div>
       <ul>
         {cityFromFetchData.map((city) => (
