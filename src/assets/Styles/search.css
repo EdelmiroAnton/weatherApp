@@ -25,10 +25,6 @@
     padding-left: 25px;
   }
 
-  .search_input::placeholder {
-    padding-left: px;
-  }
-
   .icon_cancel {
     position: relative;
     left: -18px;
