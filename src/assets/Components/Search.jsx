@@ -6,7 +6,7 @@ import { api } from "../../helpers/weatherApi_info";
 
 //Images
 import magnifying_glass from "../img/magnifying_glass.png";
-import cancel_icon from "../img/cancel_Icon.png";
+import cancel_icon from "../img/cancel_icon.png";
 
 import "../Styles/search.css";
 
