@@ -18,6 +18,7 @@
     border: none;
     border-radius: 10px;
     background-color: rgb(226, 222, 222);
+    font-size: 16px;
   }
 
   .search_input[type="text"] {
