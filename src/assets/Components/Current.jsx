@@ -48,12 +48,14 @@ const Current = () => {
             />
           </div>
           <h3 className="weatherCondition">{currentWeather.condition.text}</h3>
-          <h3>
-            <img src={humedad} alt="icon_humidity" className="iconHumidity" />
-            {currentWeather.humidity}%
-          </h3>
-          <h3>🌧️ {currentWeather.precip_in} %</h3>
-          <h3>🌬️ {currentWeather.wind_kph} km/h</h3>
+          <div className="container_extraInfo">
+            <div className="iconHumidity">
+              <img src={humedad} alt="icon_humidity" width={22} height={22} />
+              {currentWeather.humidity}%
+            </div>
+            <div>🌧️ {currentWeather.precip_in} %</div>
+            <div>🌬️ {currentWeather.wind_kph} km/h</div>
+          </div>
         </div>
       )}
       {forecast.map((el) => (
