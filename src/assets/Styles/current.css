@@ -42,6 +42,12 @@
     margin-top: 0;
     margin-bottom: 0;
   }
+
+  .container_img_weather_condition{
+    display: flex;
+    justify-content: center;
+  }
+
   .iconHumidity {
     width: 22px;
     height: 24px;
