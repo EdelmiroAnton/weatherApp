@@ -43,11 +43,18 @@
     margin-bottom: 0;
   }
 
-  .container_img_weather_condition{
+  .container_img_weather_condition {
     display: flex;
     justify-content: center;
   }
 
+  .weatherCondition {
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+  }
   .iconHumidity {
     width: 22px;
     height: 24px;
