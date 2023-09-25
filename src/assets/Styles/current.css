@@ -61,4 +61,14 @@
     display: flex;
     align-items: center;
   }
+
+  .container_forecast {
+    display: block;
+    margin-top: 15px;
+  }
+  .daily_forecast {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
