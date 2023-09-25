@@ -21,7 +21,7 @@ const SearchedCity = () => {
       )}
       {currentWeather && (
         <div>
-          <h3>🌡️ {currentWeather.temp_c} °C</h3>
+          <h3>🌡️ {Math.round(currentWeather.temp_c)} °C</h3>
           <img
             src={currentWeather.condition.icon}
             alt="icon_weather_condition"

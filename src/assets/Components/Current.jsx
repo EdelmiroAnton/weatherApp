@@ -39,7 +39,7 @@ const Current = () => {
 
       {currentWeather && (
         <div className="container_weather">
-          <h3 className="temperature">{currentWeather.temp_c}°</h3>
+          <h3 className="temperature">{Math.round(currentWeather.temp_c)}°</h3>
           <img
             src={currentWeather.condition.icon}
             alt="icon_weather_condition"
