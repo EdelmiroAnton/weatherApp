@@ -1,7 +1,8 @@
 .app_container {
   max-width: 500px;
   width: auto;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin-left: auto;
   margin-right: auto;
+  margin-top: 15px;
 }
