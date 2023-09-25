@@ -23,8 +23,23 @@
   }
 
   .main_city {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 500;
+    margin-top: 0;
+  }
+
+  .container_weather {
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+
+  .temperature {
+    font-size: 50px;
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .iconHumidity {
     width: 22px;

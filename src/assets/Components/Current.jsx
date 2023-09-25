@@ -23,10 +23,10 @@ const Current = () => {
       <Search />
       {currentLocation ? (
         <div className="container_main_city">
-          <h3>
+          <h2 className="main_city">
             {currentLocation.name}, {currentLocation.region},{" "}
             {currentLocation.country}
-          </h3>
+          </h2>
         </div>
       ) : (
         <div className="loader">
@@ -36,14 +36,15 @@ const Current = () => {
           </div>
         </div>
       )}
+
       {currentWeather && (
-        <div>
-          <h3>{currentWeather.temp_c} °C</h3>
+        <div className="container_weather">
+          <h3 className="temperature">{currentWeather.temp_c}°</h3>
           <img
             src={currentWeather.condition.icon}
             alt="icon_weather_condition"
           />
-          <h3>{currentWeather.condition.text}</h3>
+          <h3 className="weatherCondition">{currentWeather.condition.text}</h3>
           <h3>
             <img src={humedad} alt="icon_humidity" className="iconHumidity" />
             {currentWeather.humidity}%
