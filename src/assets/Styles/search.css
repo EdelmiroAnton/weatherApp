@@ -1,32 +1,31 @@
 @media (min-width: 320px) and (max-width: 767px) {
   .container_cancel_icon {
-    display: flex;
-    justify-content: end;
-    position: relative;
-    top: -19px;
-    left: -5px;
+    width: 15px;
+    margin-left: auto;
+    margin-right: 5px;
+    margin-top: -25px;
   }
 
   .icon_cancel {
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     cursor: pointer;
   }
 
   .search_input {
+    width: 100%;
     border: none;
     border-radius: 10px;
     background-color: rgb(226, 222, 222);
     font-size: 15px;
-    height: 25px;
+    height: 35px;
     background-image: url("../img/magnifying_glass.png");
     background-repeat: no-repeat;
-    background-size: 12px;
+    background-size: 15px;
     background-position: 5px center;
   }
 
   .search_input[type="text"] {
-    width: 100%;
     padding-left: 25px;
   }
 

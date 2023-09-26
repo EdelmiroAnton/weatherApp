@@ -18,6 +18,7 @@
   }
 
   .container_main_city {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
   }
