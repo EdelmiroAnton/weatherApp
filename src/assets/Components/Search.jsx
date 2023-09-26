@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { api } from "../../helpers/weatherApi_info";
 
 //Images
-import magnifying_glass from "../img/magnifying_glass.png";
 import cancel_icon from "../img/cancel_icon.png";
 
 import "../Styles/search.css";
@@ -51,21 +50,20 @@ const Search = () => {
     }
   };
 
+  const toggleInput = () => {
+    inputValue.classList.toggle("lightEffect");
+  };
   return (
     <>
-      <div className="container_input">
-        <img
-          src={magnifying_glass}
-          alt="search_magnifyingGlass"
-          className="magnifiyngGlass"
-        />
-        <input
-          type="text"
-          id="input_currentCity"
-          className="search_input"
-          onChange={getUserSearch}
-          placeholder="Search for a city, state or county"
-        />
+      <input
+        type="text"
+        id="input_currentCity"
+        className="search_input"
+        onChange={getUserSearch}
+        onClick={toggleInput}
+        placeholder="Search for a city, state or county"
+      />
+      <div className="container_cancel_icon">
         <img
           src={cancel_icon}
           alt="icon_cancel"
@@ -73,17 +71,18 @@ const Search = () => {
           onClick={resetSearch}
           disabled={disable}
         />
-        {/* </button> */}
       </div>
-      <ul>
-        {cityFromFetchData.map((city) => (
-          <li key={city.id}>
-            <Link to={`/city/${city.name}, ${city.region}, ${city.country}`}>
-              {city.name}, {city.region}, {city.country}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {searchedCity && (
+        <ul>
+          {cityFromFetchData.map((city) => (
+            <li key={city.id}>
+              <Link to={`/city/${city.name}, ${city.region}, ${city.country}`}>
+                {city.name}, {city.region}, {city.country}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 };
