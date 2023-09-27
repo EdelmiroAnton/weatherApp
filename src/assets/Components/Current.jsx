@@ -39,14 +39,14 @@ const Current = () => {
 
       {currentWeather && (
         <div className="container_weather">
-          <h3 className="temperature">{Math.round(currentWeather.temp_c)}°</h3>
           <div className="container_img_weather_condition">
             <img
               src={currentWeather.condition.icon}
               alt="img_weather_condition"
-              width={100}
+              width={120}
             />
           </div>
+          <h3 className="temperature">{Math.round(currentWeather.temp_c)}°</h3>
           <h3 className="weatherCondition">{currentWeather.condition.text}</h3>
           <div className="container_extraInfo">
             <div className="iconHumidity">
