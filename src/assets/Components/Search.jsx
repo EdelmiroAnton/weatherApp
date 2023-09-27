@@ -6,7 +6,7 @@ import { api } from "../../helpers/weatherApi_info";
 
 //Images
 import cancel_icon from "../img/cancel_icon.png";
-
+import magnifyingGlass from "../img/magnifying_glass.png";
 import "../Styles/search.css";
 
 const Search = () => {
@@ -50,39 +50,62 @@ const Search = () => {
     }
   };
 
+  // Effect when the user tap the input to search
   const toggleInput = () => {
     inputValue.classList.toggle("lightEffect");
   };
+
+  // Hide/show search Input
+  const toggleSearchInput = () => {
+    const searchInputContainer = document.getElementsByClassName(
+      "container_searchInput"
+    )[0];
+    if (searchInputContainer.style.display === "none") {
+      return (searchInputContainer.style.display = "block");
+    }
+    return (searchInputContainer.style.display = "none");
+  };
+
   return (
     <>
-      <input
-        type="text"
-        id="input_currentCity"
-        className="search_input"
-        onChange={getUserSearch}
-        onClick={toggleInput}
-        placeholder="Search for a city, state or county"
+      <img
+        src={magnifyingGlass}
+        alt="icon_magnifyingGlass"
+        className="icon_magnifyingGlass margin_icon_magnifyingGlass"
+        onClick={toggleSearchInput}
       />
-      <div className="container_cancel_icon">
-        <img
-          src={cancel_icon}
-          alt="icon_cancel"
-          className="icon_cancel"
-          onClick={resetSearch}
-          disabled={disable}
+      <div className="container_searchInput">
+        <input
+          type="text"
+          id="input_currentCity"
+          className="search_input"
+          onChange={getUserSearch}
+          onClick={toggleInput}
+          placeholder="Search for a city, state or county"
         />
+        <div className="container_cancel_icon">
+          <img
+            src={cancel_icon}
+            alt="icon_cancel"
+            className="icon_cancel"
+            onClick={resetSearch}
+            disabled={disable}
+          />
+        </div>
+        {searchedCity && (
+          <ul>
+            {cityFromFetchData.map((city) => (
+              <li key={city.id}>
+                <Link
+                  to={`/city/${city.name}, ${city.region}, ${city.country}`}
+                >
+                  {city.name}, {city.region}, {city.country}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      {searchedCity && (
-        <ul>
-          {cityFromFetchData.map((city) => (
-            <li key={city.id}>
-              <Link to={`/city/${city.name}, ${city.region}, ${city.country}`}>
-                {city.name}, {city.region}, {city.country}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
     </>
   );
 };
