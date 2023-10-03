@@ -2,7 +2,7 @@ import { Puff } from "react-loader-spinner";
 import humedad from "../img/humedad.png";
 
 //Helpers
-import { getForecastDate } from "../../helpers//getForecastDate";
+import { getForecastDate } from "../../helpers/getForecastDate";
 import { api } from "../../helpers/weatherApi_info";
 import { useFetchData } from "../../helpers/useFetchData";
 import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
@@ -13,7 +13,7 @@ import Search from "./Search";
 //Styles
 import "../Styles/current.css";
 
-const Current = () => {
+const CurrentLocation = () => {
   const { city } = useReverseGeocoding();
   const URL = `${api.BASEURL}/forecast.json?key=${api.APIKEY}&q=${city}&days=3`;
   const { currentLocation, currentWeather, forecast } = useFetchData(URL);
@@ -81,4 +81,4 @@ const Current = () => {
   );
 };
 
-export default Current;
+export default CurrentLocation;

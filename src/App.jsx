@@ -1,17 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 
 //Components
-import Current from "./assets/Components/Current";
+import CurrentLocation from "./assets/Components/CurrentLocation";
 import SearchedCity from "./assets/Components/SearchedCity";
 
-import "./App.css"
+import "./App.css";
 const App = () => {
   return (
     <div className="app_container">
       <Routes>
-        <Route path="/" element={<Current />} />
+        <Route path="/" element={<CurrentLocation />} />
         <Route path="/city/:city" element={<SearchedCity />} />
-        <Route path="*" element={<Current />} />
+        <Route path="*" element={<CurrentLocation />} />
       </Routes>
     </div>
   );
