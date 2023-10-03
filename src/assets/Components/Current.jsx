@@ -43,7 +43,6 @@ const Current = () => {
             <img
               src={currentWeather.condition.icon}
               alt="img_weather_condition"
-              width={120}
             />
           </div>
           <h3 className="temperature">{Math.round(currentWeather.temp_c)}°</h3>
