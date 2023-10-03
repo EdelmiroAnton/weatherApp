@@ -1,5 +1,4 @@
 import { Puff } from "react-loader-spinner";
-import humedad from "../img/humedad.png";
 
 //Helpers
 import { getForecastDate } from "../../helpers/getForecastDate";
@@ -9,6 +8,7 @@ import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
 
 //Components
 import Search from "./Search";
+import CurrentWeather from "./CurrentWeather";
 
 //Styles
 import "../Styles/current.css";
@@ -37,26 +37,8 @@ const CurrentLocation = () => {
         </div>
       )}
 
-      {currentWeather && (
-        <div className="container_weather">
-          <div className="container_img_weather_condition">
-            <img
-              src={currentWeather.condition.icon}
-              alt="img_weather_condition"
-            />
-          </div>
-          <h3 className="temperature">{Math.round(currentWeather.temp_c)}°</h3>
-          <h3 className="weatherCondition">{currentWeather.condition.text}</h3>
-          <div className="container_extraInfo">
-            <div className="iconHumidity">
-              <img src={humedad} alt="icon_humidity" width={22} height={22} />
-              {currentWeather.humidity}%
-            </div>
-            <div>🌧️ {currentWeather.precip_in} %</div>
-            <div>🌬️ {currentWeather.wind_kph} km/h</div>
-          </div>
-        </div>
-      )}
+      <CurrentWeather currentWeather={currentWeather} />
+
       <div className="container_forecast">
         {forecast.map((el) => (
           <>
