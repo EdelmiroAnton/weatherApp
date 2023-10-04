@@ -1,7 +1,6 @@
 import { Puff } from "react-loader-spinner";
 
 //Helpers
-import { getForecastDate } from "../../helpers/getForecastDate";
 import { api } from "../../helpers/weatherApi_info";
 import { useFetchData } from "../../helpers/useFetchData";
 import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
@@ -9,6 +8,7 @@ import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
 //Components
 import Search from "./Search";
 import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
 
 //Styles
 import "../Styles/current.css";
@@ -38,27 +38,7 @@ const CurrentLocation = () => {
       )}
 
       <CurrentWeather currentWeather={currentWeather} />
-
-      <div className="container_forecast">
-        {forecast.map((el) => (
-          <>
-            <div className="daily_forecast">
-              <div className="date_forecast">{getForecastDate(el.date)}</div>
-              <img
-                src={el.day.condition.icon}
-                alt="icon_forecast"
-                className="icon_forecast"
-              />
-              <div className="min_temp_forecast">
-                Min: {Math.round(el.day.mintemp_c)}°
-              </div>
-              <div className="max_temp_forecast">
-                Max: {Math.round(el.day.maxtemp_c)}°
-              </div>
-            </div>
-          </>
-        ))}
-      </div>
+      <Forecast forecast={forecast} />
     </>
   );
 };
