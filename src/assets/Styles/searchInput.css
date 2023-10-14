@@ -1,0 +1,73 @@
+@media (min-width: 320px) and (max-width: 767px) {
+  .container_searchInput {
+   transition: all 0.3s ease;
+  }
+  .container_cancel_icon {
+    width: 15px;
+    margin-left: auto;
+    margin-right: 5px;
+    margin-top: -25px;
+  }
+
+  .icon_magnifyingGlass,
+  .icon_cancel {
+    /* position: absolute; */
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+
+  .margin_icon_magnifyingGlass {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+
+  /* .icon_cancel {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  } */
+
+  .search_input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(226, 222, 222);
+    font-size: 15px;
+    height: 35px;
+    box-shadow: 0px 0px 10px grey;
+    /* background-image: url("../img/magnifying_glass.png");
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 5px center; */
+  }
+
+  .search_input[type="text"] {
+    padding-left: 25px;
+  }
+
+  .lightEffect {
+    animation-name: lightEffect;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes lightEffect {
+    0% {
+      background-color: rgb(226, 222, 222);
+    }
+    50% {
+      background-color: rgb(182, 182, 182);
+    }
+    100% {
+      background-color: rgb(226, 222, 222);
+    }
+  }
+
+  /* to disable the auto zoom in mobile devices */
+  .search_input:focus {
+    font-size: 15px;
+    outline-color: grey;
+    outline: none;
+  }
+}

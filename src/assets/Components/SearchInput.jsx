@@ -7,7 +7,7 @@ import { api } from "../../helpers/weatherApi_info";
 //Images
 import cancel_icon from "../img/cancel_icon.png";
 import magnifyingGlass from "../img/magnifying_glass.png";
-import "../Styles/search.css";
+import "../Styles/searchInput.css";
 
 const SearchInput = () => {
   const [disable, setDisable] = useState(true); //Disable search btn
