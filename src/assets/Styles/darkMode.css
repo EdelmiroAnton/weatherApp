@@ -1,0 +1,14 @@
+#darkMode {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.bodyBackground {
+  background-color: #0c151d;
+  color: white;
+}
+
+svg {
+  margin: 0;
+}
