@@ -1,5 +1,3 @@
-import { Puff } from "react-loader-spinner";
-
 //Helpers
 import { api } from "../../helpers/weatherApi_info";
 import { useFetchData } from "../../helpers/useFetchData";
@@ -12,6 +10,8 @@ import Forecast from "./Forecast";
 
 //Styles
 import "../Styles/current.css";
+import Loader from "./Loader";
+import CityName from "./CityName";
 
 const CurrentLocation = () => {
   const { city } = useReverseGeocoding();
@@ -22,19 +22,9 @@ const CurrentLocation = () => {
     <>
       <Search />
       {currentLocation ? (
-        <div className="container_main_city">
-          <h2 className="main_city">
-            {currentLocation.name}, {currentLocation.region},{" "}
-            {currentLocation.country}
-          </h2>
-        </div>
+        <CityName currentLocation={currentLocation} />
       ) : (
-        <div className="loader">
-          <div className="loader_text">Buscando tu ubicación</div>
-          <div className="loader_spinner">
-            <Puff />
-          </div>
-        </div>
+        <Loader />
       )}
 
       <CurrentWeather currentWeather={currentWeather} />
