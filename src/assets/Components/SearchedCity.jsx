@@ -1,5 +1,5 @@
 //React-Router Dom
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 //React Icons
 import { IoArrowBackCircleOutline } from "react-icons/io5";
@@ -21,9 +21,15 @@ const SearchedCity = () => {
   const URL = `${api.BASEURL}/forecast.json?key=${api.APIKEY}&q=${city}&days=3`;
   const { currentLocation, currentWeather, forecast } = useFetchData(URL);
 
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <>
-      <IoArrowBackCircleOutline />
+      <IoArrowBackCircleOutline onClick={goBack} />
       {currentLocation && <CityName currentLocation={currentLocation} />}
       <CurrentWeather currentWeather={currentWeather} />
       <Forecast forecast={forecast} />
