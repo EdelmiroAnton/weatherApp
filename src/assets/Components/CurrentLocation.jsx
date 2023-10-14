@@ -4,7 +4,7 @@ import { useFetchData } from "../../helpers/useFetchData";
 import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
 
 //Components
-import Search from "./Search";
+import SearchInput from "./SearchInput";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
 
@@ -20,7 +20,7 @@ const CurrentLocation = () => {
 
   return (
     <>
-      <Search />
+      <SearchInput />
       {currentLocation ? (
         <CityName currentLocation={currentLocation} />
       ) : (
