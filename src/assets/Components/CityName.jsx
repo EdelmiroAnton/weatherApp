@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import "../Styles/cityName.css";
 
+import "../Styles/cityName.css";
 const CityName = ({ currentLocation }) => {
   return (
     <div className="container_main_city">
