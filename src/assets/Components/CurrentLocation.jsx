@@ -9,7 +9,7 @@ import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
 
 //Styles
-import "../Styles/current.css";
+import "../Styles/currentLocation.css";
 import Loader from "./Loader";
 import CityName from "./CityName";
 
