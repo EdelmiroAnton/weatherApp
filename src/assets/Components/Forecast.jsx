@@ -3,6 +3,9 @@
 //Helper
 import { getForecastDate } from "../../helpers/getForecastDate";
 
+//Styles
+import "../Styles/forecast.css";
+
 const Forecast = ({ forecast }) => {
   return (
     <div className="container_forecast">
