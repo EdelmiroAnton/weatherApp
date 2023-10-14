@@ -81,7 +81,7 @@ const Search = () => {
           className="search_input"
           onChange={getUserSearch}
           onClick={toggleInput}
-          placeholder="Search for a city, state or county"
+          placeholder="Search for a city, state or country"
         />
         <div className="container_cancel_icon">
           <img
