@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import "../Styles/cityName.css";
 
 const CityName = ({ currentLocation }) => {
   return (

@@ -1,0 +1,14 @@
+@media (min-width: 320px) and (max-width: 767px) {
+  .container_main_city {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main_city {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 7px;
+    margin-bottom: 0;
+  }
+}
