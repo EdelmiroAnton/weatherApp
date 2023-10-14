@@ -2,11 +2,14 @@
 
 import humedad from "../img/humedad.png";
 
+//Styles
+import "../Styles/currentWeather.css";
+
 const CurrentWeather = ({ currentWeather }) => {
   return (
     <>
       {currentWeather && (
-        <div className="container_weather">
+        <div>
           <div className="container_img_weather_condition">
             <img
               src={currentWeather.condition.icon}

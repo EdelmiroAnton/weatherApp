@@ -1,0 +1,37 @@
+@media (min-width: 320px) and (max-width: 767px) {
+  .container_img_weather_condition {
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+  }
+
+  .temperature {
+    font-size: 80px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: -25px;
+    margin-bottom: 0;
+  }
+
+  .weatherCondition {
+    font-size: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container_extraInfo {
+    margin-top: 25px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 600;
+  }
+
+  .iconHumidity {
+    display: flex;
+    align-items: center;
+  }
+}
