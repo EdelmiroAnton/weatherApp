@@ -1,4 +1,8 @@
+//React-Router Dom
 import { useParams } from "react-router-dom";
+
+//React Icons
+import { IoArrowBackCircleOutline } from "react-icons/io5";
 
 //Helpers
 import { api } from "../../helpers/weatherApi_info";
@@ -19,6 +23,7 @@ const SearchedCity = () => {
 
   return (
     <>
+      <IoArrowBackCircleOutline />
       {currentLocation && <CityName currentLocation={currentLocation} />}
       <CurrentWeather currentWeather={currentWeather} />
       <Forecast forecast={forecast} />
