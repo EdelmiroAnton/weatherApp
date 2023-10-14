@@ -7,9 +7,6 @@ import { useReverseGeocoding } from "../../helpers/useReverseGeocoding";
 import SearchInput from "./SearchInput";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
-
-//Styles
-import "../Styles/currentLocation.css";
 import Loader from "./Loader";
 import CityName from "./CityName";
 
