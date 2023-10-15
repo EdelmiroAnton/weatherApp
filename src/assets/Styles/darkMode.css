@@ -12,3 +12,7 @@
 svg {
   margin: 0;
 }
+
+.sun {
+  display: none;
+}
