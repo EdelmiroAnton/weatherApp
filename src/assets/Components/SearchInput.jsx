@@ -36,7 +36,11 @@ const SearchInput = () => {
   };
 
   // Get the value when the user write the city in the Input
-  const getUserSearch = () => {
+  const getUserSearch = (e) => {
+    //Delete whitespace at the beginning
+    inputValue.value = e.target.value
+    e.target.value = inputValue.value.trimStart()
+
     setSearchedCity(inputValue.value);
     if (inputValue.value === "") {
       setSearchedCity(undefined);
@@ -79,7 +83,7 @@ const SearchInput = () => {
           type="text"
           id="input_currentCity"
           className="search_input"
-          onChange={getUserSearch}
+          onKeyUp={getUserSearch}
           onClick={toggleInput}
           placeholder="Search for a city, state or country"
         />
