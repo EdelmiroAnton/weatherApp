@@ -5,6 +5,7 @@
   }
 
   .arrowBack {
-    font-size: 30px;
+    box-shadow: 0 0 8px grey;
+    border-radius: 50%;
   }
 }

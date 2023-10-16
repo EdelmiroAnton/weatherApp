@@ -1,8 +1,8 @@
 //React-Router Dom
 import { useParams, useNavigate } from "react-router-dom";
 
-//React Icons
-import { IoArrowBackCircleOutline } from "react-icons/io5";
+//img
+import backArrow from "../img/back-button.png";
 
 //Helpers
 import { api } from "../../helpers/weatherApi_info";
@@ -12,6 +12,7 @@ import { useFetchData } from "../../helpers/useFetchData";
 import CurrentWeather from "./CurrentWeather";
 import CityName from "./CityName";
 import Forecast from "./Forecast";
+import Loader from "./Loader";
 
 //Styles
 import "../Styles/searchedCity.css";
@@ -30,8 +31,13 @@ const SearchedCity = () => {
   return (
     <>
       <div className="arrowBack-and-city">
-        <IoArrowBackCircleOutline onClick={goBack} className="arrowBack" />
-        {currentLocation && <CityName currentLocation={currentLocation} />}
+        <img src={backArrow} alt="" onClick={goBack} className="arrowBack" />
+
+        {currentLocation ? (
+          <CityName currentLocation={currentLocation} />
+        ) : (
+          <Loader />
+        )}
       </div>
       <CurrentWeather currentWeather={currentWeather} />
       <Forecast forecast={forecast} />
