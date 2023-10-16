@@ -1,6 +1,10 @@
-.arrowBack {
-  position: absolute;
-  margin-top: 8px;
-  margin-left: 5px;
-  font-size: 19px;
+@media (min-width: 320px) and (max-width: 767px) {
+  .arrowBack-and-city {
+    display: flex;
+    align-items: center;
+  }
+
+  .arrowBack {
+    font-size: 30px;
+  }
 }

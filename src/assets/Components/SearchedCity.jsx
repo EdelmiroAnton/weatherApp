@@ -29,8 +29,10 @@ const SearchedCity = () => {
 
   return (
     <>
-      <IoArrowBackCircleOutline onClick={goBack} className="arrowBack" />
-      {currentLocation && <CityName currentLocation={currentLocation} />}
+      <div className="arrowBack-and-city">
+        <IoArrowBackCircleOutline onClick={goBack} className="arrowBack" />
+        {currentLocation && <CityName currentLocation={currentLocation} />}
+      </div>
       <CurrentWeather currentWeather={currentWeather} />
       <Forecast forecast={forecast} />
     </>
