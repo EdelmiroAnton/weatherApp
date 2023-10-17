@@ -5,7 +5,16 @@
   }
 
   .arrowBack {
+    transition: all 0.1s ease;
     box-shadow: 0 0 8px grey;
     border-radius: 50%;
+    cursor: pointer
+  }
+
+  .arrowBack:hover {
+    background-color: rgb(184, 180, 180);
+  }
+  .arrowBack:active{
+    background-color: rgb(163, 161, 161);
   }
 }
