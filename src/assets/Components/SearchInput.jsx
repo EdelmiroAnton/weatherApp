@@ -7,6 +7,8 @@ import { api } from "../../helpers/weatherApi_info";
 //Images
 import cancel_icon from "../img/cancel_icon.png";
 import magnifyingGlass from "../img/magnifying_glass.png";
+
+//Styles
 import "../Styles/searchInput.css";
 
 const SearchInput = () => {
@@ -38,8 +40,8 @@ const SearchInput = () => {
   // Get the value when the user write the city in the Input
   const getUserSearch = (e) => {
     //Delete whitespace at the beginning
-    inputValue.value = e.target.value
-    e.target.value = inputValue.value.trimStart()
+    inputValue.value = e.target.value;
+    e.target.value = inputValue.value.trimStart();
 
     setSearchedCity(inputValue.value);
     if (inputValue.value === "") {

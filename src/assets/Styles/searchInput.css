@@ -1,6 +1,7 @@
 @media (min-width: 320px) and (max-width: 767px) {
   .container_searchInput {
-   transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
   }
   .container_cancel_icon {
     width: 15px;
