@@ -71,4 +71,24 @@
     outline-color: grey;
     outline: none;
   }
+
+  .city-list-container {
+    /* background-color: whitesmoke; */
+    border-radius: 10px;
+  }
+
+  .city-list {
+    list-style: none;
+  }
+
+  .city-list li {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .city-list li a {
+    color: #0c151d;
+    text-decoration: none;
+    font-weight: 600;
+  }
 }

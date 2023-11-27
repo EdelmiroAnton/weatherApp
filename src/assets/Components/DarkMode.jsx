@@ -1,26 +1,34 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useContext } from "react";
 
 //React-icons
 import { MdNightlight } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 
+//Context
+import ThemeContext from "../context/themeContext";
+
+//Styles
 import "../Styles/darkMode.css";
 
-const DarkMode = () => {
-  const [dark, setDark] = useState(true);
+const DarkMode = ({ changeTheme }) => {
+  const theme = useContext(ThemeContext);
 
   const handleDarkMode = () => {
-    const toggleDark = document.getElementsByTagName("body")[0];
-    toggleDark.classList.toggle("bodyBackground");
-
-    if (dark) {
+    //Show the sun and the moon icon
+    if (theme) {
       document.getElementById("moon").style.display = "none";
       document.getElementById("sun").style.display = "block";
     } else {
       document.getElementById("moon").style.display = "block";
       document.getElementById("sun").style.display = "none";
     }
-    setDark(!dark);
+    changeTheme(); //true or false
+
+    Object.assign(document.getElementsByTagName("body")[0].style, {
+      backgroundColor: theme ? "#0c151d" : "whitesmoke",
+      color: theme ? "whitesmoke" : "black",
+    });
   };
 
   return (

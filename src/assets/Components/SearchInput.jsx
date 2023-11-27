@@ -99,17 +99,19 @@ const SearchInput = () => {
           />
         </div>
         {searchedCity && (
-          <ul>
-            {cityFromFetchData.map((city) => (
-              <li key={city.id}>
-                <Link
-                  to={`/city/${city.name}, ${city.region}, ${city.country}`}
-                >
-                  {city.name}, {city.region}, {city.country}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="city-list-container">
+            <ul className="city-list">
+              {cityFromFetchData.map((city) => (
+                <li key={city.id}>
+                  <Link
+                    to={`/city/${city.name}, ${city.region}, ${city.country}`}
+                  >
+                    {city.name}, {city.region}, {city.country}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
     </>
