@@ -12,7 +12,6 @@ import magnifyingGlass from "../img/magnifying_glass.png";
 import "../Styles/searchInput.css";
 
 const SearchInput = () => {
-  const [disable, setDisable] = useState(true); //Disable search btn
   const [searchedCity, setSearchedCity] = useState(); //Get the input value and use the variable to get the data from de API URL
   const [cityFromFetchData, setCityFromFetchData] = useState([]); // Store the response from the API Data
 
@@ -33,7 +32,6 @@ const SearchInput = () => {
   //Function to reset the API Data to initial state
   const resetSearch = () => {
     setCityFromFetchData([]);
-    setDisable(true);
     inputValue.value = "";
   };
 
@@ -46,13 +44,6 @@ const SearchInput = () => {
     setSearchedCity(inputValue.value);
     if (inputValue.value === "") {
       setSearchedCity(undefined);
-    }
-    if (inputValue.value.length >= 3) {
-      setDisable(false);
-    }
-
-    if (inputValue.value.length < 3) {
-      setDisable(true);
     }
   };
 
@@ -95,7 +86,6 @@ const SearchInput = () => {
             alt="icon_cancel"
             className="icon_cancel"
             onClick={resetSearch}
-            disabled={disable}
           />
         </div>
         {searchedCity && (

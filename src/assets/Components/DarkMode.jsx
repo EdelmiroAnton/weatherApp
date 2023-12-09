@@ -24,7 +24,6 @@ const DarkMode = ({ changeTheme }) => {
       document.getElementById("sun").style.display = "none";
     }
     changeTheme(); //true or false
-
     Object.assign(document.getElementsByTagName("body")[0].style, {
       backgroundColor: theme ? "#0c151d" : "whitesmoke",
       color: theme ? "whitesmoke" : "black",
