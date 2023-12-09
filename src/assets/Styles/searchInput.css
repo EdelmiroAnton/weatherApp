@@ -12,7 +12,6 @@
 
   .icon_magnifyingGlass,
   .icon_cancel {
-    /* position: absolute; */
     width: 15px;
     height: 15px;
     cursor: pointer;
@@ -24,11 +23,102 @@
     margin-left: 5px;
   }
 
-  /* .icon_cancel {
+  .search_input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(226, 222, 222);
+    font-size: 15px;
+    height: 35px;
+    box-shadow: 0px 0px 10px grey;
+  }
+
+  .search_input[type="text"] {
+    padding-left: 25px;
+  }
+
+  .lightEffect {
+    animation-name: lightEffect;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes lightEffect {
+    0% {
+      background-color: rgb(226, 222, 222);
+    }
+    50% {
+      background-color: rgb(182, 182, 182);
+    }
+    100% {
+      background-color: rgb(226, 222, 222);
+    }
+  }
+
+  /* to disable the auto zoom in mobile devices */
+  .search_input:focus {
+    font-size: 15px;
+    outline-color: grey;
+    outline: none;
+  }
+
+  .city-list-container {
+    border-radius: 10px;
+  }
+
+  .city-list {
+    list-style: none;
+  }
+
+  .city-list li {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .city-list li a {
+    color: #0c151d;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Dark mode */
+  .container-dark {
+    margin-top: 6px;
+    border: 1px solid white;
+    box-shadow: 0px 0px 5px grey;
+  }
+
+  .container-dark-display {
+    display: none;
+  }
+  .city-list-dark li a {
+    color: white;
+  }
+}
+
+@media (min-width: 768px) {
+  .container_searchInput {
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+  }
+  .container_cancel_icon {
+    width: 15px;
+    margin-left: auto;
+    margin-right: 5px;
+    margin-top: -25px;
+  }
+
+  .icon_magnifyingGlass,
+  .icon_cancel {
     width: 15px;
     height: 15px;
     cursor: pointer;
-  } */
+  }
+
+  .margin_icon_magnifyingGlass {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5px;
+  }
 
   .search_input {
     width: 100%;
@@ -38,10 +128,6 @@
     font-size: 15px;
     height: 35px;
     box-shadow: 0px 0px 10px grey;
-    /* background-image: url("../img/magnifying_glass.png");
-    background-repeat: no-repeat;
-    background-size: 15px;
-    background-position: 5px center; */
   }
 
   .search_input[type="text"] {
