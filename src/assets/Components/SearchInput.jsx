@@ -57,17 +57,6 @@ const SearchInput = () => {
     inputValue.classList.toggle("lightEffect");
   };
 
-  // Hide/show search Input
-  // const toggleSearchInput = () => {
-  //   const searchInputContainer = document.getElementsByClassName(
-  //     "container_searchInput"
-  //   )[0];
-  //   if (searchInputContainer.style.display === "none") {
-  //     return (searchInputContainer.style.display = "block");
-  //   }
-  //   return (searchInputContainer.style.display = "none");
-  // };
-
   return (
     <>
       <img
@@ -95,9 +84,9 @@ const SearchInput = () => {
         </div>
         {searchedCity && (
           <div
-            className={`city-list-container ${
-              !theme && "container-dark city-list-dark"
-            }`}
+            className={`city-list-container 
+            ${!theme && "container-dark city-list-dark"} 
+            ${inputValue.value.length < 3 && "container-dark-display"}`}
           >
             <ul className="city-list">
               {cityFromFetchData.map((city) => (
