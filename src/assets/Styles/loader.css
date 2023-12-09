@@ -18,3 +18,24 @@
     margin-top: 10px;
   }
 }
+
+@media (min-width: 768px) {
+  .loader {
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .loader_text {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  .loader_spinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
