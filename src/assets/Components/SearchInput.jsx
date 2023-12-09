@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 //Helpers
@@ -8,12 +8,17 @@ import { api } from "../../helpers/weatherApi_info";
 import cancel_icon from "../img/cancel_icon.png";
 import magnifyingGlass from "../img/magnifying_glass.png";
 
+//Context
+import ThemeContext from "../context/themeContext";
+
 //Styles
 import "../Styles/searchInput.css";
 
 const SearchInput = () => {
   const [searchedCity, setSearchedCity] = useState(); //Get the input value and use the variable to get the data from de API URL
   const [cityFromFetchData, setCityFromFetchData] = useState([]); // Store the response from the API Data
+
+  const theme = useContext(ThemeContext);
 
   //Get and store the data from the "search.json" endpoint
   useEffect(() => {
@@ -53,15 +58,15 @@ const SearchInput = () => {
   };
 
   // Hide/show search Input
-  const toggleSearchInput = () => {
-    const searchInputContainer = document.getElementsByClassName(
-      "container_searchInput"
-    )[0];
-    if (searchInputContainer.style.display === "none") {
-      return (searchInputContainer.style.display = "block");
-    }
-    return (searchInputContainer.style.display = "none");
-  };
+  // const toggleSearchInput = () => {
+  //   const searchInputContainer = document.getElementsByClassName(
+  //     "container_searchInput"
+  //   )[0];
+  //   if (searchInputContainer.style.display === "none") {
+  //     return (searchInputContainer.style.display = "block");
+  //   }
+  //   return (searchInputContainer.style.display = "none");
+  // };
 
   return (
     <>
@@ -69,7 +74,7 @@ const SearchInput = () => {
         src={magnifyingGlass}
         alt="icon_magnifyingGlass"
         className="icon_magnifyingGlass margin_icon_magnifyingGlass"
-        onClick={toggleSearchInput}
+        // onClick={toggleSearchInput}
       />
       <div className="container_searchInput">
         <input
@@ -89,7 +94,11 @@ const SearchInput = () => {
           />
         </div>
         {searchedCity && (
-          <div className="city-list-container">
+          <div
+            className={`city-list-container ${
+              !theme && "container-dark city-list-dark"
+            }`}
+          >
             <ul className="city-list">
               {cityFromFetchData.map((city) => (
                 <li key={city.id}>
