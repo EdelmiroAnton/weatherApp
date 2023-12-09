@@ -13,3 +13,19 @@
     margin-top: 0;
   }
 }
+
+@media (min-width: 768px) {
+  .container_main_city {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .main_city {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
