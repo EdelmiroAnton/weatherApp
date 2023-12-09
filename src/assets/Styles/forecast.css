@@ -10,3 +10,16 @@
     font-weight: 600;
   }
 }
+
+@media (min-width: 768px) {
+  .container_forecast {
+    display: block;
+    margin-top: 15px;
+  }
+  .daily_forecast {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 600;
+  }
+}
